@@ -36,3 +36,40 @@ DELETE FROM shirts WHERE article='tank top';
 DELETE FROM shirts;
 
 DROP TABLE shirts;
+
+
+
+STRING FUNCTIONS EXERCISE
+
+
+SELECT REVERSE(UPPER('Why does my cat look at me with such hatred?'));
+
+SELECT
+	REPLACE
+	(
+	CONCAT('I', ' ', 'like', ' ', 'cats'), 
+	' ',
+	'-'
+	);
+	
+SELECT 
+	REPLACE
+	(title, ' ', '->') AS 'titles' FROM books;
+
+
+SELECT
+	(author_lname) AS 'forwards',
+	REVERSE(author_lname) AS 'backwards'
+	FROM books;
+	
+SELECT UPPER(CONCAT(author_lname, ' ', author_fname)) AS 'full name in caps' FROM books;
+
+SELECT CONCAT(title, ' was released in ', released_year) AS 'blurb' FROM books;
+
+SELECT title AS ' Titles', CHAR_LENGTH(title) AS 'character count' FROM books;
+
+SELECT 
+	CONCAT((SUBSTRING(title, 1, 10)), '...') AS 'short title',
+	CONCAT(author_lname, ',', author_fname) AS 'author',
+	CONCAT(stock_quantity, ' in stock') AS quantity 
+	FROM books;
